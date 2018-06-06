@@ -171,7 +171,7 @@ $row = mysqli_fetch_array($result);
 			<form action="remove_board.php" method="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
 				<input type="hidden" name="num" value="<?= $num ?>">
-				<input type="submit" name ="method" value="삭제" style="width:60px; height: 30px; float: left; margin-right: 5px;>
+				<input type="submit" name ="method" value="삭제" style="width:60px; height: 30px; float: left; margin-right: 5px;">
 			</form>
 			<?}?>
 			<form action="board.php" metehod="GET">
@@ -205,6 +205,7 @@ $row = mysqli_fetch_array($result);
 			  mysqli_data_seek($result, $i);	
 			  $row = mysqli_fetch_array($result);   
 			?>
+			<?if($row){?>
 			<tr>
 				<td class="id"><?= $row["id"] ?></td>
 				<td class="content"><?= $row["content"] ?></td>
@@ -221,7 +222,7 @@ $row = mysqli_fetch_array($result);
 					<?}?>
 				</td>
 			</tr>
-			<?php }?>
+			<?php }}?>
 
 		</table>
 		<center>
