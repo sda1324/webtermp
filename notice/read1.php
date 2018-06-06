@@ -160,7 +160,7 @@ $row = mysqli_fetch_array($result);
 				</div>		
 			</div>
 		</div>
-    	<div style="margin-left: 85%; padding: 10px;">
+    	<div style=" padding: 10px;">
 			<? if($_SESSION['userid'] == $row['id']){?>
 			<form action="edit.php" methoid="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
@@ -175,7 +175,7 @@ $row = mysqli_fetch_array($result);
 			<?}?>
 			<form action="notice.php" metehod="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
-				<input type="submit" value="목록가기" style="width:60px; height: 30px; margin: 5px 0 0 65px; ">
+				<input type="submit" value="목록가기" style="width:60px; height: 30px; ">
 			</form>
 		</div>
 		<? if($_SESSION['userid']){ ?>

@@ -51,7 +51,7 @@
 
 					<button type="submit" name="method" value="글쓰기" class="btnSubmit btn" style="float: right; width:60px; height: 30px;">작성</button>
 
-					<a href=".notice.php" class="btnList btn" style="margin-left:30px;">목록</a>
+					<a href="./notice.php" class="btnList btn" style="margin-left:30px;">목록</a>
 
 				</div>
 
