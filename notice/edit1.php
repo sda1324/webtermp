@@ -3,9 +3,9 @@ include"../web1/dbconn.php";
 $page = $_GET['page'];
 $num = $_GET['num'];
 $sql = 'select title, content from notice where num = '. $num.';';
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);
-mysql_close();
+$result = $link->query($sql) or die("SQL 에러");
+$row = mysqli_fetch_array($result);
+mysqli_close();
 $subject = $row["title"];
 $content = $row["content"];
 ?>

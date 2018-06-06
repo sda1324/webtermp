@@ -5,7 +5,7 @@
     $page = $_GET['page'];
     $sql = "delete from board where num = " . $num;
 
-    mysql_query($sql, $link) or die("SQL 에러");
-    mysql_close();
+    $link->query($sql) or die("SQL 에러");
+    mysqli_close();
     echo "<script> location.href='board.php?page=$page' </script>;";
 ?>

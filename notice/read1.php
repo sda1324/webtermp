@@ -2,6 +2,7 @@
 <?
 session_start();
 include"../web1/dbconn.php";
+
 if(!isset($_GET["num"])){
 	echo "Invalid value input";
 	exit();
@@ -10,17 +11,17 @@ if(!isset($_GET["num"])){
 $num = $_GET["num"];
 $page = $_GET["page"];
 $sql = "select hit from notice where num = $num;";
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);   
+$result = $link->query($sql) or die("SQL 에러");
+$row = mysqli_fetch_array($result);   
 $hit = $row['hit'] +1;
 $sql = "update notice set hit=$hit where num = $num;";
-$result = mysql_query($sql, $link) or die("SQL 에러");
+$result = $link->query($sql) or die("SQL 에러");
 
 $sql = "SELECT title, id, content, regi, hit FROM notice WHERE num = " . $num;
 
 // 데이터 가져오기
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);
+$result = $link->query($sql) or die("SQL 에러");
+$row = mysqli_fetch_array($result);
 
 	// 한 페이지에 보여줄 리스트 수
 	$record_per_page = 5;
@@ -33,10 +34,10 @@ $row = mysql_fetch_array($result);
 
 	// 공지사항 개수
 	$sql = "SELECT id, content, regi FROM comment_notice WHERE parent=$num ORDER BY num desc;";
-	$res = mysql_query($sql, $link) or die("SQL 에러");
-	$total_record = mysql_num_rows($res);
+	$res = $link->query($sql) or die("SQL 에러");
+	$total_record = mysqli_num_rows($res);
 	$sql = "SELECT id, content, regi FROM comment_notice WHERE parent=$num ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
-	$result = mysql_query($sql, $link) or die("SQL 에러");
+	$result = $link->query($sql) or die("SQL 에러");
 ?>
 <html>
 <head>
@@ -196,8 +197,8 @@ $row = mysql_fetch_array($result);
 			<?php
 			for ($i = 0; $i < $total_record; $i++) {
 			  // 데이터 가져오기
-			  mysql_data_seek($result, $i);       
-			  $row = mysql_fetch_array($result);   
+			  mysqli_data_seek($result, $i);       
+			  $row = mysqli_fetch_array($result);   
 			?>
 			<tr>
 				<td class="id"><?= $row["id"] ?></td>
