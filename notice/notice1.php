@@ -13,8 +13,8 @@
 
 	// 공지사항 개수
 	$sql = "SELECT @rownum:=@rownum-1 as row, num, id, title, regi, hit FROM notice,(select @rownum:=count(*)+1 from notice) r ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
-	$result = mysql_query($sql, $link) or die("SQL 에러");
-	$total_record = mysql_num_rows($result);
+	$result = $link->query($sql) or die("SQL 에러");
+	$total_record = mysqli_num_rows($result);
 
 ?>
 <!DOCTYPE html>
@@ -44,8 +44,8 @@
 			<?php
 			for ($i = 0; $i < $total_record; $i++) {
 			  // 데이터 가져오기
-			  mysql_data_seek($result, $i);       
-			  $row = mysql_fetch_array($result);   
+			  mysqli_data_seek($result, $i);       
+			  $row = mysqli_fetch_array($result);   
 			?>
 			<tr>
 				<td class="num"><?= $row["row"] ?></td>

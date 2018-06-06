@@ -1,7 +1,8 @@
-<!DOCTYPE>
 <?
 session_start();
+
 include"../web1/dbconn.php";
+
 if(!isset($_GET["num"])){
 	echo "Invalid value input";
 	exit();
@@ -9,18 +10,21 @@ if(!isset($_GET["num"])){
 
 $num = $_GET["num"];
 $page = $_GET["page"];
-$sql = "select hit from board where num = $num;";
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);   
+
+$sql = "select hit from board where num=$num";
+$result = $link->query($sql) or die("SQL 에러1");
+
+$row = mysqli_fetch_array($result);   
 $hit = $row['hit'] +1;
+
 $sql = "update board set hit=$hit where num = $num;";
-mysql_query($sql, $link) or die("SQL 에러");
+$result = $link->query($sql) or die("SQL 에러2");
 
 $sql = "SELECT title, id, content, regi, hit FROM board WHERE num = " . $num;
 
 // 데이터 가져오기
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);
+$result = $link->query($sql) or die("SQL 에러3");
+$row = mysqli_fetch_array($result);
 
 	// 한 페이지에 보여줄 리스트 수
 	$record_per_page = 5;
@@ -33,10 +37,10 @@ $row = mysql_fetch_array($result);
 
 	// 공지사항 개수
 	$sql = "SELECT id, content, regi FROM comment_board WHERE parent=$num ORDER BY num desc;";
-	$res = mysql_query($sql, $link) or die("SQL 에러");
-	$total_record = mysql_num_rows($res);
+	$res = $link->query($sql) or die("SQL 에러4");
+	$total_record = mysqli_num_rows($res);
 	$sql = "SELECT id, content, regi FROM comment_board WHERE parent=$num ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
-	$result = mysql_query($sql, $link) or die("SQL 에러");
+	$result = $link->query($sql) or die("SQL 에러5");
 ?>
 <html>
 <head>
@@ -196,8 +200,13 @@ $row = mysql_fetch_array($result);
 			<?php
 			for ($i = 0; $i < $total_record; $i++) {
 			  // 데이터 가져오기
+<<<<<<< HEAD
 			  mysql_data_seek($result, $i);	
 			  $row = mysql_fetch_array($result);   
+=======
+			  mysqli_data_seek($result, $i);       
+			  $row = $result->fetch_array();
+>>>>>>> 5f284be4d990320f607a0c0b62694aee6e717f4c
 			?>
 			<tr>
 				<td class="id"><?= $row["id"] ?></td>

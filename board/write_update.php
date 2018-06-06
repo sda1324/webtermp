@@ -12,8 +12,8 @@
         $regi = date("Y-m-d H:i:s");
         $sql = "insert into board(id, title, content, regi, hit) values('$id','$title','$content','$regi',$hit);";
 
-        mysql_query($sql, $link) or die("SQL 에러");
-        mysql_close();
+        $link->query($sql) or die("SQL 에러");
+        mysqli_close();
 
         echo "<script> location.href='board.php?page=$page' </script>;";
     }
@@ -26,8 +26,8 @@
         $regi= date("Y-m-d H:i:s");
         $sql = "insert into comment_board(parent,id,content,regi) values('$num','$id','$content','$regi');";
         
-        mysql_query($sql, $link) or die("SQL 에러");
-        mysql_close();
+        $link->query($sql) or die("SQL 에러");
+        mysqli_close();
         echo "<script> location.href='read.php?num=$num&page=$page' </script>;";
     }
 ?>
