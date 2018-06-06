@@ -26,7 +26,7 @@
         $regi= date("Y-m-d H:i:s");
         $sql = "insert into comment_board(parent,id,content,regi) values('$num','$id','$content','$regi');";
         
-        $link->query($sql) or die("SQL 에러");
+        $link->query($sql) or die("SQL 에러222");
         mysqli_close();
         echo "<script> location.href='read.php?num=$num&page=$page' </script>;";
     }

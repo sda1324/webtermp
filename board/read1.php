@@ -10,8 +10,6 @@ if(!isset($_GET["num"])){
 $num = $_GET["num"];
 $page = $_GET["page"];
 
-echo "num = $num";
-
 $sql = "select hit from board where num='$num'";
 $result = $link->query($sql) or die("SQL 에러1");
 
@@ -24,8 +22,8 @@ $result = $link->query($sql) or die("SQL 에러2");
 $sql = "SELECT title, id, content, regi, hit FROM board WHERE num ='$num'";
 
 // 데이터 가져오기
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);
+$result = $link->query($sql) or die("SQL 에러");
+$row = mysqli_fetch_array($result);
 
 	// 한 페이지에 보여줄 리스트 수
 	$record_per_page = 5;
@@ -38,9 +36,9 @@ $row = mysql_fetch_array($result);
 
 	// 공지사항 개수
 	$sql = "SELECT id, content, regi FROM comment_board WHERE parent='$num' ORDER BY num desc;";
-	$res = $link->query($sql) or die("SQL 에러4");
-	$total_record = mysqli_num_rows($res);
-	$sql = "SELECT id, content, regi FROM comment_board WHERE parent='$num' ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
+	$result = $link->query($sql) or die("SQL 에러4");
+	$total_record = mysqli_num_rows($result);
+	$sql = "SELECT num, id, content, regi FROM comment_board WHERE parent='$num' ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page;
 	$result = $link->query($sql) or die("SQL 에러5");
 ?>
 <html>
@@ -170,10 +168,10 @@ $row = mysql_fetch_array($result);
 				<input type="hidden" name="num" value="<?= $num ?>">
 				<input type="submit" value="수정">
     		</form>
-			<form action="remove_board.php" methoid="GET">
+			<form action="remove_board.php" method="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
 				<input type="hidden" name="num" value="<?= $num ?>">
-				<input type="submit" value="삭제">
+				<input type="submit" name="method" value="삭제">
 			</form>
 			<?}?>
 			<form action="board.php" metehod="GET">
@@ -181,6 +179,7 @@ $row = mysql_fetch_array($result);
 				<input type="submit" value="목록가기">
 			</form>
 		</div>
+		<? if($_SESSION['userid']){ ?>
 		<div>
 			<form action="write_update.php" method="POST">
 				<input type="hidden" name="page" value="<?= $page ?>">
@@ -188,26 +187,39 @@ $row = mysql_fetch_array($result);
 				<textarea name="content" placeholder='댓글을 등록하세요'></textarea>
 				<input type="submit" name="method" value="댓글등록">
 			</form>
-		</div>		
+		</div>
+		<? } ?>
 	</div>
 	<div>
 		<table class="table table-striped">
 			<tr id="info">
 				<td class="id" width=50>작성자</td>
 				<td class="content">내용</td>
-        		<td class="regi">날짜</td>
+				<td class="regi">날짜</td>
+				<td class="del"></td>
 			</tr>
 
 			<?php
-			for ($i = 0; $i < $total_record; $i++) {
+			for ($i = 0; $i < $record_per_page; $i++) {
 			  // 데이터 가져오기
-			  mysql_data_seek($result, $i);	
-			  $row = mysql_fetch_array($result);   
+			  mysqli_data_seek($result, $i);	
+			  $row = mysqli_fetch_array($result);   
 			?>
 			<tr>
 				<td class="id"><?= $row["id"] ?></td>
 				<td class="content"><?= $row["content"] ?></td>
-        		<td class="regi"><?= $row["regi"] ?></td>
+				<td class="regi"><?= $row["regi"] ?></td>
+				<td>
+					<?if($_SESSION['userid'] == $row['id'] && $row){?>
+					<form action="remove_board.php" method="GET">
+					<input type="hidden" name="page" value="<?= $page ?>">
+					<input type="hidden" name="com_page" value="<?= $now_page ?>">
+					<input type="hidden" name="com_num" value="<?= $row["num"] ?>">
+					<input type="hidden" name="num" value="<?= $num ?>">
+					<input type="submit" name="method" value="댓글삭제">
+					</form>
+					<?}?>
+				</td>
 			</tr>
 			<?php }?>
 
@@ -247,7 +259,6 @@ $row = mysql_fetch_array($result);
 
 			?>
       </center>
-		</tr>
 		</div>
 
 </body>
