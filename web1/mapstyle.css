@@ -1,0 +1,15 @@
+#locsearchtitle {
+    width: 800px;
+    height: 100px;
+    margin: auto;
+}
+
+#locsearchbody {
+    width: 1000px;
+    height: 800px;
+    margin: auto;
+}
+
+h2 {
+    margin: 0 10px 0 0;
+}
