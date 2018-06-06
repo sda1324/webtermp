@@ -51,7 +51,7 @@
 							<?= $row["id"] ?>
 						</td>
 						<td class="title">
-							<a href="read.php?num=<?=$row["num"]?>&page=<?= $now_page?>">
+							<a href="../board/read.php?num=<?=$row["num"]?>&page=<?= $now_page?>">
 								<?= $row["title"] ?>
 							</a>
 						</td>
