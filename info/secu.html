@@ -1,0 +1,30 @@
+<?
+    session_start();
+?>
+<html>
+    <head>
+        <title> 내 정보 수정하기 </title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="secustyle.css"/>
+    </head>
+    <body>
+        <center>
+            <h1> <?=$_SESSION['userid'] ?>님의 정보수정 </h1>
+        <div id="secu">       
+            <form method="post" action="secu.php">
+                <table>
+                    <tr>
+                        <td>비밀번호</td>
+                        <td><input type="password" size="30" style="height:30px" name="pw"></td>
+                    </tr>
+                    <tr>
+                        <td><br/></td>
+                        <td colspan="2"><center><input type="submit" value="정보 수정하기" style="width:243px;height:35px"></center></td>
+                    </tr>
+                </table>
+            </form>
+            <a href=../web1/mainpage.html> 초기화면 </a>
+        </div>
+    </center>
+    </body>
+</html>

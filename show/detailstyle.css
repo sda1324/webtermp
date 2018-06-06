@@ -1,0 +1,55 @@
+ul {
+    list-style: none;
+}
+
+td {
+    width: 300px;
+}
+tr {
+    height: 40px;
+}
+#contents {
+    width: 1000px;
+    height: 1000px;
+    margin: auto;
+}
+
+#name{
+    width: 300px;
+    height: 40px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+#name h2{
+    float: left;
+    margin: 0 10px 0 0;
+}
+#name span{
+    float: left;
+    margin-top: 8px;
+}
+
+#detail {
+    display: table;
+    width: 1000px;
+    height: 500px;
+    margin: auto;
+    border: 1px solid gainsboro;
+
+}
+
+#detailimg{
+    display: table-cell;
+    width: 500px;
+    vertical-align: middle;
+}
+#detailsum{
+    display: table-cell;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(219, 219, 219);
+}
+
+#suminner{
+    padding: 10px;
+}

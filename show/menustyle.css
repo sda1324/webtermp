@@ -1,0 +1,44 @@
+ul {
+    list-style: none;
+}
+li {
+    float: left;
+}
+a{
+    text-decoration: none;
+}
+
+#topmenu{
+    width: 500px;
+    height: 50px;
+    margin: auto;
+}
+
+#topmenu li{
+    border: 0.5px solid rgb(190, 190, 190);
+    padding: 9px 5px;
+    width: 100px;
+}
+.on{
+    background-color: rgb(226, 226, 226);
+}
+
+#topmenu li a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+#menucontainer{
+    width: 1000px;
+    height: 800px;
+    margin: auto;
+}
+#menucontainer li{
+    padding-top: 80px;
+}
+
+
+.name {
+    text-align: center;
+}

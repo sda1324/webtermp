@@ -1,0 +1,17 @@
+body {
+    margin-top: 100px;
+}
+#login table {
+
+    background: rgba(158, 158, 158, 0.144);
+    border-radius: 15px;
+    /*margin: 0 200px 0 200px; */
+    padding: 80px;
+}
+
+#login a {
+    text-decoration: none;
+    font-size: 12px;
+    color: black;
+    padding: 0 10px;
+}
