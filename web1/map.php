@@ -1,4 +1,4 @@
-<div id=locsearchtitle style="margin-top:80px;">
+<div id=locsearchtitle style="margin-top:80px; margin-bottom:30px; border-bottom: 1px solid gray;">
     <img src="../img/placeholder.png" style="float:left; margin-right:20px">
     <h2> 매장찾기 </h2>
     <span> 가까운 지점을 찾아보세요 </span>
