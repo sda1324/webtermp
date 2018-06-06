@@ -15,7 +15,7 @@ $content = $row["content"];
 
 	<meta charset="utf-8" />
 
-	<title>수정하기 | Kurien's Library</title>
+	<title>텀프로젝트</title>
 
 	<link rel="stylesheet" href="./css/normalize.css" />
 

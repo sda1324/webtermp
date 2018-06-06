@@ -21,7 +21,7 @@
         exit();
     }
     
-    $mysqli=mysqli_connect("1.214.233.123","root","wjddnwls","members");
+    $mysqli=mysqli_connect("localhost","root","wjddnwls","members");
     
     $check="SELECT *from test2 WHERE userid='$id'";
     $result=$mysqli->query($check);

@@ -18,7 +18,7 @@
         exit();
     }
     
-    $mysqli=mysqli_connect("1.214.233.123","root","wjddnwls","members");
+    $mysqli=mysqli_connect("localhost","root","wjddnwls","members");
     
     $updateinfo=mysqli_query($mysqli,"UPDATE test2 SET userpw='$pw',name='$name',email='$email' where userid='$_SESSION[userid]'");
     if($updateinfo){

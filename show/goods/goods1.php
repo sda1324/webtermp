@@ -6,7 +6,7 @@
 
 <?
     $check = $_GET['val'];
-    $mysqli=mysqli_connect("1.214.233.123","root","wjddnwls","members");
+    $mysqli=mysqli_connect("localhost","root","wjddnwls","members");
     $sql = "select * from goods where name='$check'";
     $result = $mysqli->query($sql);
 
