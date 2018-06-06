@@ -141,7 +141,7 @@ $row = mysqli_fetch_array($result);
 		<div class="board_read">
 			<!-- READ HEADER -->
 			<div class="read_header">
-				<h1 style="margin:0px;padding:10px 0px 10px 10px;font-size:18px;border:none;display:block;">
+				<h1 style="margin:30px 0 0 0;padding:10px 0px 10px 10px;font-size:18px;border:none;display:block;">
 					<span><?= $row["title"] ?></span>
 				</h1>
 				<p class="time">
@@ -154,28 +154,28 @@ $row = mysqli_fetch_array($result);
 					</span>
 				</p>
 			</div>
-			<div class="read_body">
+			<div class="read_body" style="min-height: 400px;">
 				<div class="document_83629_78949 xe_content">
 					<?= $row["content"] ?>
 				</div>		
 			</div>
 		</div>
-    	<div>
+    	<div style="margin-left: 85%; padding: 10px;">
 			<? if($_SESSION['userid'] == $row['id']){?>
 			<form action="edit.php" methoid="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
 				<input type="hidden" name="num" value="<?= $num ?>">
-				<input type="submit" value="수정">
+				<input type="submit" value="수정" style="width:60px; height: 30px; float: left; margin-right: 5px;">
     		</form>
 			<form action="remove_notice.php" methoid="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
 				<input type="hidden" name="num" value="<?= $num ?>">
-				<input type="submit" name="method" value="삭제">
+				<input type="submit" name="method" value="삭제" style="width:60px; height: 30px; float: left; margin-right: 5px;>
 			</form>
 			<?}?>
 			<form action="notice.php" metehod="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
-				<input type="submit" value="목록가기">
+				<input type="submit" value="목록가기" style="width:60px; height: 30px; margin: 5px 0 0 65px; ">
 			</form>
 		</div>
 		<? if($_SESSION['userid']){ ?>
@@ -183,8 +183,8 @@ $row = mysqli_fetch_array($result);
 			<form action="write_update.php" method="POST">
 				<input type="hidden" name="page" value="<?= $page ?>">
 				<input type="hidden" name="num" value="<?= $num ?>">
-				<textarea name="content" placeholder='댓글을 등록하세요'></textarea>
-				<input type="submit" name="method" value="댓글등록">
+				<textarea name="content" placeholder='댓글을 등록하세요' style="margin: 0; width: 90%; height: 62px;"></textarea>
+				<input type="submit" name="method" value="댓글등록" style="height:70px; width: 8%; float:right;">
 			</form>
 		</div>		
 		<?}?>
@@ -202,7 +202,8 @@ $row = mysqli_fetch_array($result);
 			for ($i = 0; $i < $record_per_page; $i++) {
 			  // 데이터 가져오기
 			  mysqli_data_seek($result, $i);       
-			  $row = mysqli_fetch_array($result);   
+			//   $row = mysqli_fetch_array($result);
+			  $row = $result->fetch_array();   
 			?>
 			<tr>
 				<td class="id"><?= $row["id"] ?></td>

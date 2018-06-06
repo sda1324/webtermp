@@ -1,5 +1,6 @@
 <?
     include"../web1/dbconn.php";
+    echo $_GET['method'];
     if($_GET['method']=='삭제'){
     $num = $_GET['num'];
     $page = $_GET['page'];

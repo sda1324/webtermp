@@ -11,20 +11,12 @@
 
 	<link rel="stylesheet" href="./css/board.css" />
 
-	<style>
-		.boardArticle h1{
-			font-size: 36px;
-    		text-decoration: underline;
-  			background: #2c62b5;
-		}
-	</style>
+
 </head>
 
 <body>
 
 	<article class="boardArticle">
-
-		<h1>자유게시판 글쓰기</h1>
 
 		<div id="boardWrite">
 
@@ -32,7 +24,7 @@
 
 				<table id="boardWrite">
 
-					<caption class="readHide">자유게시판 글쓰기</caption>
+					<caption class="readHide" style="font-size: 30px;">자유게시판 글쓰기</caption>
 
 					<tbody>
 
@@ -40,7 +32,7 @@
 
 							<th scope="row"><label for="bTitle">제목</label></th>
 
-							<td class="title"><input type="text" name="bTitle" id="bTitle"></td>
+							<td class="title"><input type="text" name="bTitle" id="bTitle" style="height:20px; width:300px;"></td>
 
 						</tr>
 
@@ -48,7 +40,7 @@
 
 							<th scope="row"><label for="bContent">내용</label></th>
 
-							<td class="content"><textarea name="bContent" id="bContent"></textarea></td>
+							<td class="content"><textarea name="bContent" id="bContent" style="margin: 0px; width: 1358px; height:500px;"></textarea></td>
 
 						</tr>
 
@@ -58,9 +50,9 @@
 				<div class="btnSet">
 					<input type="hidden" name="page" value="<?= $page ?>">
 
-					<button type="submit" name="method" value="글쓰기" class="btnSubmit btn">작성</button>
+					<button type="submit" name="method" value="글쓰기" class="btnSubmit btn" style="float: right; width:60px; height: 30px;">작성</button>
 
-					<a href="board.php" class="btnList btn">목록</a>
+					<a href="board.php" class="btnList btn" style="margin-left:30px;">목록</a>
 
 				</div>
 

@@ -9,7 +9,11 @@ body {
     font-family: '맑은고딕';
 }
 li{list-style: none;}
-a{text-decoration: none;}
+
+a{
+    text-decoration: none;
+    color: black;
+}
 
 
 
@@ -103,15 +107,15 @@ a{text-decoration: none;}
         min-width:1000px;
         padding:20px;
         margin-right:20px;
-        border: 1px solid rgb(206, 206, 206);
+        /* border: 1px solid rgb(206, 206, 206); */
         /* box-shadow: 0px 0px 10px 0px #888888; */
     }
 
         #contone{
             margin-top: 20px;
-            margin-right: 34px;
+            margin-right: 38px;
             float: left;
-            width: 580px;
+            width: 678px;
             height: 400px;
             border: 1px solid gainsboro;
         }
@@ -119,7 +123,7 @@ a{text-decoration: none;}
         #conttwo{
             margin-top: 20px;
             float: left;
-            width: 580px;
+            width: 678px;
             height: 400px;
             border: 1px solid gainsboro;
         }

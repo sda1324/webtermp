@@ -21,20 +21,11 @@ $content = $row["content"];
 
 	<link rel="stylesheet" href="./css/board.css" />
 
-	<style>
-		.boardArticle h1{
-			font-size: 36px;
-    		text-decoration: underline;
-  			background: #2c62b5;
-		}
-	</style>
 </head>
 
 <body>
 
 	<article class="boardArticle">
-
-		<h1>공지사항</h1>
 
 		<div id="boardWrite">
 
@@ -42,7 +33,7 @@ $content = $row["content"];
 
 				<table id="boardWrite">
 
-					<caption class="readHide">수정하기</caption>
+					<caption class="readHide" style="font-size: 30px;">수정하기</caption>
 
 					<tbody>
 
@@ -50,7 +41,7 @@ $content = $row["content"];
 
 							<th scope="row"><label for="bTitle">제목</label></th>
 
-							<td class="title"><input type="text" name="bTitle" id="bTitle" value="<?= $subject ?>"></td>
+							<td class="title"><input type="text" name="bTitle" id="bTitle" value="<?= $subject ?>" style="height:20px; width:300px;"></td>
 
 						</tr>
 
@@ -58,7 +49,7 @@ $content = $row["content"];
 
 							<th scope="row"><label for="bContent">내용</label></th>
 
-							<td class="content"><textarea name="bContent" id="bContent"><?= $content ?></textarea></td>
+							<td class="content"><textarea name="bContent" id="bContent" style="margin: 0px; width: 1358px; height:500px;"><?= $content ?></textarea></td>
 
 						</tr>
 
@@ -69,9 +60,9 @@ $content = $row["content"];
 					<input type="hidden" name="page" value="<?= $page ?>">
 					<input type="hidden" name="num" value="<?= $num ?>">
 
-					<button type="submit" class="btnSubmit btn">수정</button>
+					<button type="submit" class="btnSubmit btn" style="float: right; width:60px; height: 30px;">수정</button>
 
-					<a href="./notice.php" class="btnList btn">목록</a>
+					<a href="./notice.php" class="btnList btn" style="margin-left:30px;">목록으로</a>
 
 				</div>
 
