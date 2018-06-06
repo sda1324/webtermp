@@ -5,16 +5,27 @@
 	// 한 페이지에 보여줄 리스트 수
 	$record_per_page = 15;
 	// 한 블럭에 보여줄 페이지 수
-	$page_per_block = 10;
+	$page_per_block = 5;
 	// 현재 페이지
 	$now_page = ($_GET['page']) ? $_GET['page'] : 1;
 	// 현재 블럭
 	$now_block = ceil($now_page / $page_per_block);
 
 	// 공지사항 개수
-	$sql = "SELECT @rownum:=@rownum-1 as row, num, id, title, regi, hit FROM board,(select @rownum:=count(*)+1 from board) r ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
+	$sql = "SELECT * from board;";
+	$result2 = $link->query($sql) or die("SQL 에러1");
+	$total_record = mysqli_num_rows($result2);
+
+	$st = $record_per_page * ($now_page - 1);
+	$count = $total_record-$record_per_page* ($now_page - 1);
+
+	$sql = "SET @rownum:=$count+1";
+	$link->query($sql) or die("SQL 에러4");
+	$sql = "SELECT @rownum:=@rownum-1 as row, num from board ORDER BY num desc LIMIT ".$st.",".$count;
+	$result2 = $link->query($sql) or die("SQL 에러5");
+	
+	$sql = "SELECT num, id, title, regi, hit FROM board ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page;
 	$result = $link->query($sql) or die("SQL 에러1");
-	$total_record = mysqli_num_rows($result);
 ?>
 
 
@@ -32,15 +43,17 @@
 						<th class="hit">조회수</th>
 					</tr>
 
-					<?php
-			for ($i = 0; $i < $total_record; $i++) {
+						<?php
+			for ($i = 0; $i < $record_per_page; $i++) {
 			  // 데이터 가져오기
-			  mysqli_data_seek($result, $i);       
-			  $row = mysqli_fetch_array($result);   
+			  mysqli_data_seek($result, $i);
+			  mysqli_data_seek($result2, $i);
+			  $row = mysqli_fetch_array($result);
+			  $row2 =  mysqli_fetch_array($result2);
 			?>
 					<tr>
 						<td class="num">
-							<?= $row["row"] ?>
+							<?= $row2["row"] ?>
 						</td>
 						<td class="id">
 							<?= $row["id"] ?>
@@ -72,24 +85,23 @@
 							<center>
 								<?php
                         // 전체 페이지 수
-			$total_page = floor($total_record / $record_per_page) + 1;
+			$total_page = ceil($total_record / $record_per_page);
                         // 전체 블럭 수
-			$total_block = floor($total_page / $page_per_block)+1;
+			$total_block = ceil($total_page / $page_per_block);
 
                         // 현재 블럭이 1보다 클 경우
 			if(1 < $now_block ) {
 			  $pre_page = ($now_block - 1) * $page_per_block;
-			  echo '<a href="board.php?page='.$pre_page.'">이전</a>';
+			  echo '<a href="board.php?&page='.$pre_page.'">이전</a>';
 			}
 
-			$start_page = floor($now_page / $page_per_block) * $page_per_block + 1;
+			$start_page = ($now_block - 1) * $page_per_block + 1;
 			$end_page = $start_page + $page_per_block - 1;
 
                         // 총 페이지와 마지막 페이지를 같게 하기, 즉 글이 있는 페이지까지만 설정
 			if($end_page > $total_page) {
 			  $end_page = $total_page;
 			}
-
 			?>
 
 								<?php for($i = $start_page; $i <= $end_page; $i++) {?>
