@@ -7,7 +7,7 @@
         <title> 텀프로젝트 </title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="../web1/mainstyle.css"/>
-        <link rel="stylesheet" type="text/css" href="menustyle.css"/>
+        <link rel="stylesheet" type="text/css" href="../board/boardstyle.css"/>
     </head>
     <body>
         <div id="header">
