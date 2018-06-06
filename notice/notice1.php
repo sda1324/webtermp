@@ -23,13 +23,13 @@
 		<p>
 			<div>
 				<h1>공지사항</h1>
-				<table class="table table-striped" style="border:1px solid black; width:100%;">
+				<table id="noticetable">
 					<tr id="info">
-						<td class="num" width=50>번호</td>
-						<td class="id">작성자</td>
-						<td class="title">제목</td>
-						<td class="regi">날짜</td>
-						<td class="hit">조회수</td>
+						<th class="num" width=50>번호</th>
+						<th class="id">작성자</th>
+						<th class="title">제목</th>
+						<th class="regi">날짜</th>
+						<th class="hit">조회수</th>
 					</tr>
 
 					<?php
@@ -64,7 +64,7 @@
 					<form action="write.php" method='GET'>
 						<div class="write_content" align="right">
 							<input type="hidden" name="page" value="<?= $now_page ?>">
-							<input type="submit" value="글쓰기" class="btn btn-primary">
+							<input type="submit" value="글쓰기" class="btn btn-primary" style="width:80px;height:30px;margin-top:10px;">
 						</div>
 					</form>
 					<?}?>

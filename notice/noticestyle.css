@@ -1,0 +1,24 @@
+table{
+    border-top: 3px solid gray;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+td , th{
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+}
+
+th {
+    background-color: rgb(241, 247, 255);
+}
+
+tbody tr:nth-child(odd){
+    background-color: rgb(247, 247, 247);
+}
+
+center {
+    margin-top: 20px;
+}
