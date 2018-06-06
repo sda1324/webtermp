@@ -3,7 +3,7 @@
 
 $id=$_POST['id'];
 $pw=$_POST['pw'];
-$mysqli=mysqli_connect("localhost","root","wjddnwls","members");
+$mysqli=mysqli_connect("1.214.233.123","root","wjddnwls","members");
  
 $check="SELECT * FROM test2 WHERE userid='$id'";
 
