@@ -6,7 +6,7 @@
 <div id="menubar">
     <ul>
         <li>
-            <a href="#"> 카페소개 </a>
+            <a href="../intro/intro.html"> 카페소개 </a>
         </li>
         <li>
             <a href="#"> 공지사항 </a>

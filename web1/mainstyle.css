@@ -103,7 +103,7 @@ a{text-decoration: none;}
         min-width:1000px;
         padding:20px;
         margin-right:20px;
-        border: 1px solid gray;
+        border: 1px solid rgb(206, 206, 206);
         /* box-shadow: 0px 0px 10px 0px #888888; */
     }
 
@@ -123,7 +123,7 @@ a{text-decoration: none;}
 #footer {
     clear:both;
     background:rgb(131, 130, 130);
-    height: 80px;
+    height: 140px;
     width:100%;
 }
 
@@ -170,6 +170,6 @@ div#slider figure {
     left: 0;
     text-align: left;
     font-size: 0;
-    -webkit-animation: 20s slidy ease-in-out infinite;
-    animation: 20s slidy ease-in-out infinite;
+    -webkit-animation: 15s slidy ease-in-out infinite;
+    animation: 15s slidy ease-in-out infinite;
 }
