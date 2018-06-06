@@ -9,7 +9,7 @@
             <a href="../intro/intro.html"> 카페소개 </a>
         </li>
         <li>
-            <a href="#"> 공지사항 </a>
+            <a href="../notice/notice.php"> 공지사항 </a>
         </li>
         <li>
             <a> 메 뉴 </a>
@@ -29,7 +29,7 @@
             </ul>
         </li>
         <li>
-            <a href="#"> 자유게시판 </a>
+            <a href="../board/board.php"> 자유게시판 </a>
         </li>
         <li>
             <a href="../web1/maptest.html"> 매장찾기 </a>
