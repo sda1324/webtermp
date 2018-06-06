@@ -8,7 +8,6 @@
     $num = $_POST['num'];
     $content = $_POST['bContent'];
     $hit = 0;
-    $regist_day = 'today';
     $sql = "update notice set title='$subject', content='$content' where num = $num;";
 
     mysql_query($sql, $link) or die("SQL 에러");

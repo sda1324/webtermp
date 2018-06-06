@@ -66,41 +66,41 @@
 		</form>
 		<?}?>
     <tr>
-			<center>
+		<center>
 			<?php
                         // 전체 페이지 수
-			$total_page = floor($total_record / $record_per_page) + 1;
+			$total_page = ceil($total_record / $record_per_page);
                         // 전체 블럭 수
-			$total_block = floor($total_page / $page_per_block)+1;
+			$total_block = ceil($total_page / $page_per_block);
 
                         // 현재 블럭이 1보다 클 경우
 			if(1 < $now_block ) {
 			  $pre_page = ($now_block - 1) * $page_per_block;
-			  echo '<a href="board.php?page='.$pre_page.'">이전</a>';
+			  echo '<a href="read.php?num='.$num.'&page='.$page.'&com_page='.$pre_page.'">이전</a>';
 			}
 
-			$start_page = floor($now_page / $page_per_block) * $page_per_block + 1;
+			$start_page = ($now_block - 1) * $page_per_block + 1;
 			$end_page = $start_page + $page_per_block - 1;
 
                         // 총 페이지와 마지막 페이지를 같게 하기, 즉 글이 있는 페이지까지만 설정
 			if($end_page > $total_page) {
 			  $end_page = $total_page;
 			}
-
 			?>
       
 			<?php for($i = $start_page; $i <= $end_page; $i++) {?>
-			    <td><a href="board.php?page=<?= $i ?>"><?= $i ?></a></td>
+			    <td><a href="read.php?num=<?= $num ?>&page=<?= $page ?>&com_page=<?= $i ?>"><?= $i ?></a></td>
       <?php }?>
       
 			<?php
                         // 현재 블럭이 총 블럭 수 보다 작을 경우
 			if($now_block < $total_block) {
 			  $post_page = $now_block * $page_per_block + 1;
-			  echo '<a href="board.php?page='.$post_page.'">다음</a>';
+			  echo '<a href="read.php?num='.$num.'&page='.$page.'&com_page='.$post_page.'">다음</a>';
 			}
 
 			?>
+      </center>
       </center>
 		</tr>
 	</div>
