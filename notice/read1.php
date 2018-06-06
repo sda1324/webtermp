@@ -170,7 +170,7 @@ $row = mysqli_fetch_array($result);
 			<form action="remove_notice.php" methoid="GET">
 				<input type="hidden" name="page" value="<?= $page ?>">
 				<input type="hidden" name="num" value="<?= $num ?>">
-				<input type="submit" name="method" value="삭제" style="width:60px; height: 30px; float: left; margin-right: 5px;>
+				<input type="submit" name="method" value="삭제" style="width:60px; height: 30px; float: left; margin-right: 5px;">
 			</form>
 			<?}?>
 			<form action="notice.php" metehod="GET">
@@ -205,12 +205,13 @@ $row = mysqli_fetch_array($result);
 			//   $row = mysqli_fetch_array($result);
 			  $row = $result->fetch_array();   
 			?>
+			<?if($row){?>
 			<tr>
 				<td class="id"><?= $row["id"] ?></td>
 				<td class="content"><?= $row["content"] ?></td>
         		<td class="regi"><?= $row["regi"] ?></td>
 				<td>
-					<?if($_SESSION['userid'] == $row['id'] && $row){?>
+					<?if($_SESSION['userid'] == $row['id']){?>
 					<form action="remove_notice.php" method="GET">
 					<input type="hidden" name="page" value="<?= $page ?>">
 					<input type="hidden" name="com_page" value="<?= $now_page ?>">
@@ -221,7 +222,7 @@ $row = mysqli_fetch_array($result);
 					<?}?>
 				</td>
 			</tr>
-			<?php }?>
+			<?php }}?>
 
 		</table>
 		<center>

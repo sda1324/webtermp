@@ -51,6 +51,7 @@
 			  $row = mysqli_fetch_array($result);   
 			  $row2 =  mysqli_fetch_array($result2);
 			?>
+			<?if($row){?>
 					<tr>
 						<td class="num">
 							<?= $row2["row"] ?>
@@ -70,7 +71,7 @@
 							<?= $row["hit"] ?>
 						</td>
 					</tr>
-					<?php }?>
+					<?php }}?>
 
 				</table>
 				<? if($_SESSION['userid']=='admin'){?>
