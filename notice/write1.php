@@ -39,7 +39,7 @@
 
 							<th scope="row"><label for="bContent">내용</label></th>
 
-							<td class="content"><textarea name="bContent" id="bContent" style="margin: 0px; width: 960px; height:500px;"></textarea></td>
+							<td class="content"><textarea name="bContent" id="bContent" style="margin: 0px; width:1358px; height:500px;"></textarea></td>
 
 						</tr>
 

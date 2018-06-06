@@ -46,12 +46,16 @@
                 </div>
             </div>
 
-            <div id="backbutton" style="margin-left:800px">
+            <div id="backbutton" style="margin: 10px 0 0 930px;">
+                <input type="button" value="닫기" onclick="self.close()">
+            </div>
+
+            <!-- <div id="backbutton" style="margin-left:800px">
                 <ul>
                     <li style="float: left; padding: 0 20px;"><button type="button" onclick="location.href='../../payment/pay.html'"> 주문하기 </button></li>
                     <li><input type="button" value="닫기" onclick="self.close()"></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </body>
 </html>
