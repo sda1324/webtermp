@@ -20,41 +20,54 @@
 <html>
 
 <head>
-    <title> 텀프로젝트 </title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" type="text/css" href="../web1/style.css" />
+	<title> 텀프로젝트 </title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="../web1/style.css" />
 </head>
 
 <body>
-    <div>
-        <div>
-            <p>
-            <div>
-		<h1>자유게시판</h1>
-		<table class="table table-striped">
-			<tr id="info">
-				<td class="num" width=50>번호</td>
-				<td class="id">작성자</td>
-				<td class="title">제목</td>
-        <td class="regi">날짜</td>
-        <td class="hit">조회수</td>
-			</tr>
+	<div>
+		<div>
+			<p>
+				<div>
+					<h1>자유게시판</h1>
+					<table class="table table-striped">
+						<tr id="info">
+							<td class="num" width=50>번호</td>
+							<td class="id">작성자</td>
+							<td class="title">제목</td>
+							<td class="regi">날짜</td>
+							<td class="hit">조회수</td>
+						</tr>
 
-			<?php
+						<?php
 			for ($i = 0; $i < $total_record; $i++) {
 			  // 데이터 가져오기
 			  mysqli_data_seek($result, $i);       
 			  $row = mysqli_fetch_array($result);   
 			?>
-			<tr>
-				<td class="num"><?= $row["row"] ?></td>
-				<td class="id"><?= $row["id"] ?></td>
-				<td class="title"><a href="read.php?num=<?=$row["num"]?>&page=<?= $now_page?>"> <?= $row["title"] ?></a></td>
-        <td class="regi"><?= $row["regi"] ?></td>
-        <td class="hit"><?= $row["hit"] ?></td>
-			</tr>
-			<?php }?>
+						<tr>
+							<td class="num">
+								<?= $row["row"] ?>
+							</td>
+							<td class="id">
+								<?= $row["id"] ?>
+							</td>
+							<td class="title">
+								<a href="read.php?num=<?=$row["num"]?>&page=<?= $now_page?>">
+									<?= $row["title"] ?>
+								</a>
+							</td>
+							<td class="regi">
+								<?= $row["regi"] ?>
+							</td>
+							<td class="hit">
+								<?= $row["hit"] ?>
+							</td>
+						</tr>
+						<?php }?>
 
+<<<<<<< HEAD
 		</table>
 		<?if($_SESSION[userid]){?>
 		<form action="write.php" method='GET'>
@@ -67,6 +80,20 @@
     <tr>
 		<center>
 			<?php
+=======
+					</table>
+					<?if($_SESSION[userid]){?>
+						<form action="write.php" method='GET'>
+							<div class="write_content" align="right">
+								<input type="hidden" name="page" value="<?= $now_page ?>">
+								<input type="submit" value="글쓰기" class="btn btn-primary">
+							</div>
+						</form>
+						<?}?>
+							<tr>
+								<center>
+									<?php
+>>>>>>> 7708d69be5d6811e0272ab576b66429aec048fdb
                         // 전체 페이지 수
 			$total_page = ceil($total_record / $record_per_page);
                         // 전체 블럭 수
@@ -86,12 +113,25 @@
 			  $end_page = $total_page;
 			}
 			?>
+<<<<<<< HEAD
       
 			<?php for($i = $start_page; $i <= $end_page; $i++) {?>
 			    <td><a href="read.php?num=<?= $num ?>&page=<?= $page ?>&com_page=<?= $i ?>"><?= $i ?></a></td>
       <?php }?>
       
 			<?php
+=======
+
+									<?php for($i = $start_page; $i <= $end_page; $i++) {?>
+									<td>
+										<a href="board.php?page=<?= $i ?>">
+											<?= $i ?>
+										</a>
+									</td>
+									<?php }?>
+
+									<?php
+>>>>>>> 7708d69be5d6811e0272ab576b66429aec048fdb
                         // 현재 블럭이 총 블럭 수 보다 작을 경우
 			if($now_block < $total_block) {
 			  $post_page = $now_block * $page_per_block + 1;
@@ -99,13 +139,18 @@
 			}
 
 			?>
+<<<<<<< HEAD
       </center>
       </center>
 		</tr>
+=======
+								</center>
+							</tr>
+				</div>
+			</p>
+		</div>
+>>>>>>> 7708d69be5d6811e0272ab576b66429aec048fdb
 	</div>
-            </p>
-        </div>
-    </div>
 </body>
 
 </html>

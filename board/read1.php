@@ -9,14 +9,19 @@ if(!isset($_GET["num"])){
 
 $num = $_GET["num"];
 $page = $_GET["page"];
-$sql = "select hit from board where num = '$num';";
-$result = mysql_query($sql, $link) or die("SQL 에러");
-$row = mysql_fetch_array($result);   
-$hit = $row['hit'] +1;
-$sql = "update board set hit=$hit where num = '$num';";
-mysql_query($sql, $link) or die("SQL 에러");
 
-$sql = "SELECT title, id, content, regi, hit FROM board WHERE num = " . $num;
+echo "num = $num";
+
+$sql = "select hit from board where num='$num'";
+$result = $link->query($sql) or die("SQL 에러1");
+
+$row = mysqli_fetch_array($result);   
+$hit = $row['hit'] +1;
+
+$sql = "update board set hit='$hit' where num = '$num';";
+$result = $link->query($sql) or die("SQL 에러2");
+
+$sql = "SELECT title, id, content, regi, hit FROM board WHERE num ='$num'";
 
 // 데이터 가져오기
 $result = mysql_query($sql, $link) or die("SQL 에러");
@@ -32,11 +37,11 @@ $row = mysql_fetch_array($result);
 	$now_block = ceil($now_page / $page_per_block);
 
 	// 공지사항 개수
-	$sql = "SELECT id, content, regi FROM comment_board WHERE parent=$num ORDER BY num desc;";
-	$res = mysql_query($sql, $link) or die("SQL 에러");
-	$total_record = mysql_num_rows($res);
-	$sql = "SELECT id, content, regi FROM comment_board WHERE parent=$num ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
-	$result = mysql_query($sql, $link) or die("SQL 에러");
+	$sql = "SELECT id, content, regi FROM comment_board WHERE parent='$num' ORDER BY num desc;";
+	$res = $link->query($sql) or die("SQL 에러4");
+	$total_record = mysqli_num_rows($res);
+	$sql = "SELECT id, content, regi FROM comment_board WHERE parent='$num' ORDER BY num desc LIMIT ". $record_per_page * ($now_page - 1) .",". $record_per_page * $now_page;
+	$result = $link->query($sql) or die("SQL 에러5");
 ?>
 <html>
 <head>
