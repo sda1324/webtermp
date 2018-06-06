@@ -3,7 +3,7 @@
             <div id="menubar">
                 <ul>
                     <li> <a href="#"> 카페소개 </a> </li>
-                    <li> <a href="#"> 공지사항 </a> </li>
+                    <li> <a href="../notice/notice.php"> 공지사항 </a> </li>
                     <li> <a> 메 뉴 </a>
                         <ul>
                             <li> <a href="../show/beverage.html"> 음료 </a></li>
@@ -12,8 +12,8 @@
                             <li> <a href="../show/goods.html"> 상품 </a> </li>
                         </ul> 
                     </li>
-                    <li> <a href="#"> 자유게시판 </a> </li>
-                    <li> <a href="../web1/maptest.html"> 매장찾기 </a> </li>
+                    <li> <a href="../board/board.php"> 자유게시판 </a> </li>
+                    <li> <a href="../web1/maptest.html"> 매장찾기 </a> </li>    
                 </ul>
             </div>
             <ul class="top">
